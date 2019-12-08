@@ -1,7 +1,7 @@
 function searchByCategory() {
   console.log("Found the recipes!");
 
-  var category = $("#recipe").val();
+  var category = $("#cat").val();
   console.log(`Category: ${category}`);
 
   $.get("/search", { category: category }, function(data) {

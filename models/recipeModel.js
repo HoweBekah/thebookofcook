@@ -2,26 +2,6 @@ const { Pool } = require("pg");
 const db_url = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString: db_url });
 
-function searchByCategory(category, callback) {
-  console.log(`Searching for category: ${category}`);
-  var sql =
-    "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE category=$1::text";
-  var params = [category];
-  pool.query(sql, params, function(err, DBres) {
-    if (err) {
-      throw err;
-    } else {
-      console.log("Back from DB with: ");
-      console.log(DBres);
-
-      var results = {
-        list: DBres.rows
-      };
-
-      callback(null, results);
-    }
-  });
-}
 function getAllRecipes(callback) {
   var results = {
     list: [
@@ -78,7 +58,6 @@ function recipeToCat(recipeId, catId, callback) {
 }
 
 module.exports = {
-  searchByCategory: searchByCategory,
   getAllRecipes: getAllRecipes,
   getRecipeById: getRecipeById,
   insertNewRecipe: insertNewRecipe,

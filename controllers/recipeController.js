@@ -3,7 +3,7 @@ const recipeModel = require("../models/recipeModel.js");
 function search(req, res) {
   //TODO: check if query is recipe id or cat id to call proper function
   var category = req.query.category; //TODO: comes from query
-  recipeModel.searchByCategory(category, function(error, results) {
+  catModel.searchByCategory(category, function(error, results) {
     res.json(results);
   });
 }
