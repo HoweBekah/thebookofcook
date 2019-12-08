@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Howe Family Cookbook</title>
     <script src="cookbook-clientside.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <h1>We Are The Howe Family</h1>
     <input type="text" id="recipe" placeholder="Recipe Name" />
-    <button onclick="searchByCategory()">Search by Category</button>
+    <button onclick="searchByRecipe()">Search by Recipe</button>
     <div>
-      <h2>Categories</h2>
-      <ul id="ulCategories"></ul>
+      <h2>Recipes</h2>
+      <ul id="ulRecipes"></ul>
     </div>
   </body>
 </html>

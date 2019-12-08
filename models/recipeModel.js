@@ -1,23 +1,24 @@
 const recipeModel = require("../models/recipeModel.js");
 
-function searchByRecipe(recipeId, callback) {
+function searchByRecipe(recipeName, callback) {
+  console.log(`Searching for recipe: ${recipeName}`);
   var results = {
     list: [
       {
         id: 1,
-        recipeName: "Hot Chocolate",
+        recipeName: recipeName,
         ingredients: "4 eggs, 2 cups water",
         instructions: "heat and mix together"
       },
       {
         id: 1,
-        recipeName: "Hot Chocolate",
+        recipeName: recipeName,
         ingredients: "4 eggs, 2 cups water",
         instructions: "heat and mix together"
       },
       {
         id: 1,
-        recipeName: "Hot Chocolate",
+        recipeName: recipeName,
         ingredients: "4 eggs, 2 cups water",
         instructions: "heat and mix together"
       }
