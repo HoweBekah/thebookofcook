@@ -1,16 +1,16 @@
-function searchByRecipe() {
-  console.log("Found the recipe!");
+function searchByCategory() {
+  console.log("Found the recipes!");
 
-  var recipeName = $("#recipe").val();
-  console.log(`Recipe: ${recipeName}`);
+  var category = $("#recipe").val();
+  console.log(`Category: ${category}`);
 
-  $.get("/search", { recipeName: recipeName }, function(data) {
+  $.get("/search", { category: category }, function(data) {
     console.log("Back from server with:");
     console.log(data);
-
+    $("#ulRecipes").empty();
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
-      $("#ulRecipes").append(`<li>${recList.recipeName}`);
+      $("#ulRecipes").append(`<li>${recList.recipe_name}</li>`);
     }
   });
 }
