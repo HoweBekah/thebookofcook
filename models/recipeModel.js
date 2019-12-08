@@ -29,14 +29,24 @@ function getAllRecipes(callback) {
   callback(null, results);
 }
 function getRecipeById(id, callback) {
-  var results = {
-    id: 1,
-    recipeName: "Hot Chocolate",
-    ingredients: "4 eggs, 2 cups water",
-    instructions: "heat and mix together"
-  };
+  console.log(`Searching for recipe id: ${id}`);
+  var sql =
+    "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE id=$1::text";
+  var params = [id];
+  pool.query(sql, params, function(err, DBres) {
+    if (err) {
+      throw err;
+    } else {
+      console.log("Back from DB with: ");
+      console.log(DBres);
 
-  callback(null, results);
+      var results = {
+        list: DBres.rows
+      };
+
+      callback(null, results);
+    }
+  });
 }
 function insertNewRecipe(recipeName, ingredients, instructions, callback) {
   var results = {

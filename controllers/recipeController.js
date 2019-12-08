@@ -13,7 +13,7 @@ function getRecipeList(req, res) {
   });
 }
 function getRecipe(req, res) {
-  var id;
+  var id = req.query.getRecipeById;
   recipeModel.getRecipeById(id, function(error, results) {
     res.json(results);
   });
