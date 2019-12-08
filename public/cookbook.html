@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Howe Family Cookbook</title>
+    <script src="cookbook-clientside.js"></script>
   </head>
   <body>
     <h1>We Are The Howe Family</h1>
+    <input type="text" id="recipe" placeholder="Recipe Name" />
+    <button onclick="searchByCategory()">Search by Category</button>
+    <div>
+      <h2>Categories</h2>
+      <ul id="ulCategories"></ul>
+    </div>
   </body>
 </html>
