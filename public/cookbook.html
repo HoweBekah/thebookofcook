@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Howe Family Cookbook</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="cookbook-clientside.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <h1>We Are The Howe Family</h1>
-    <select id="catOptions"></select>
-    <!--<input type="text" id="cat" placeholder="Category" />-->
-    <button onclick="searchByCategory()">Search by Category</button>
-    <div id="recipeDiv">
-      <ul id="ulRecipes"></ul>
+    <div id="content">
+      <h1>We Are The Howe Family</h1>
+      <select id="catOptions"></select>
+      <!--<input type="text" id="cat" placeholder="Category" />-->
+      <button onclick="searchByCategory()">Search</button>
+      <div id="recipeDiv">
+        <ol id="ulRecipes"></ol>
+      </div>
     </div>
   </body>
 </html>

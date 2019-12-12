@@ -3,42 +3,22 @@ const db_url = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString: db_url });
 
 function getAllRecipes(callback) {
-  var results = {
-    list: [
-      {
-        id: 1,
-        recipeName: "Hot Chocolate",
-        ingredients: "4 eggs, 2 cups water",
-        instructions: "heat and mix together"
-      },
-      {
-        id: 1,
-        recipeName: "Hot Chocolate",
-        ingredients: "4 eggs, 2 cups water",
-        instructions: "heat and mix together"
-      },
-      {
-        id: 1,
-        recipeName: "Hot Chocolate",
-        ingredients: "4 eggs, 2 cups water",
-        instructions: "heat and mix together"
-      }
-    ]
-  };
-
   callback(null, results);
 }
-function getRecipeById(id, callback) {
-  console.log(`Searching for recipe id: ${id}`);
+function getRecipeById(recipe_id, callback) {
+  //console.log(`Searching for recipe id: ${recipe_id}`);
+  var params = recipe_id;
   var sql =
-    "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE id=$1::text";
-  var params = [id];
-  pool.query(sql, params, function(err, DBres) {
+    "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE recipe_id=" +
+    params;
+
+  //console.log(params);
+  pool.query(sql, function(err, DBres) {
     if (err) {
       throw err;
     } else {
-      console.log("Back from DB with: ");
-      console.log(DBres);
+      //console.log("Back from DB with: ");
+      //console.log(DBres);
 
       var results = {
         list: DBres.rows

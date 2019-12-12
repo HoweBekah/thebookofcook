@@ -12,7 +12,7 @@ function getAllCats(callback) {
       throw err;
     } else {
       // console.log("Back from DB with: ");
-      console.log(DBres.rows.category);
+      //console.log(DBres.rows.category);
 
       var results = {
         list: DBres.rows
@@ -23,7 +23,7 @@ function getAllCats(callback) {
   });
 }
 function searchByCategory(category, callback) {
-  console.log(`Searching for category: ${category}`);
+  //console.log(`Searching for category: ${category}`);
   var sql =
     "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE category=$1::text";
   var params = [category];
@@ -31,8 +31,8 @@ function searchByCategory(category, callback) {
     if (err) {
       throw err;
     } else {
-      console.log("Back from DB with: ");
-      console.log(DBres);
+      //console.log("Back from DB with: ");
+      //console.log(DBres);
 
       var results = {
         list: DBres.rows

@@ -9,7 +9,7 @@ function search(req, res) {
 }
 function getCatList(req, res) {
   //get list of categories
-  console.log("getting categories");
+  //console.log("getting categories");
   catModel.getAllCats(function(error, results) {
     res.json(results);
   });
@@ -18,7 +18,7 @@ function getCatList(req, res) {
 function getCat(req, res) {
   //get 1category's recipes by catid
   var id = req.query.id;
-  console.log("getting category recipes");
+  //console.log("getting category recipes");
   catModel.getCatById(id, function(error, results) {
     res.json(results);
   });

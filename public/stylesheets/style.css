@@ -2,7 +2,41 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#content {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
 
-a {
-  color: #00B7FF;
+#recipeDiv {
+  text-align: left;
+}
+
+#ulRecipes {
+  list-style: inside;
+}
+#ingredientList {
+  width: 75%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.5em;
+  list-style-type: none;
+  text-align: left;
+}
+
+#ingsDiv.leftIngList {
+  grid-column: 1;
+}
+
+#ingsDiv.rightIngList {
+  grid-column: 2;
+}
+#recipeTitle {
+  text-align: center;
+}
+#instruct {
+  text-align: left;
+  width: 80%;
+  margin: 1em auto;
 }

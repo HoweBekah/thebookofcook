@@ -13,8 +13,9 @@ function getRecipeList(req, res) {
   });
 }
 function getRecipe(req, res) {
-  var id = req.query.getRecipeById;
-  recipeModel.getRecipeById(id, function(error, results) {
+  var recipe_id = req.param("recipe_id");
+  //console.log(`Do you work ${recipe_id}`);
+  recipeModel.getRecipeById(recipe_id, function(error, results) {
     res.json(results);
   });
 }
