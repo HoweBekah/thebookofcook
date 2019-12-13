@@ -45,13 +45,9 @@ h6 {
 header img {
   margin: auto;
   width: 100%;
-  position: relative;
-  z-index: 1;
-  top: 0;
 }
 #mainTitle {
   margin: 0;
-
   padding-bottom: 0.1em;
   font-size: 2em;
   text-shadow: 0.25em 0.25em 0.25em #20232a;
@@ -63,11 +59,6 @@ header img {
   display: inline-block;
   border-radius: 20px;
   padding: 1.5em;
-  padding: 1em;
-  position: absolute;
-  z-index: 4;
-  top: 9.75em;
-  left: 32%;
 }
 
 #searchDiv {
@@ -104,19 +95,43 @@ button#search {
 }
 
 #recTitle {
-  margin: 1em;
+  margin: 1em auto;
+  margin-bottom: 0.5em;
+  width: 50%;
+  font-size: 2.5em;
+  text-decoration: underline #20232a;
 }
 
 #ulDiv {
   width: 50%;
   margin: auto;
+  text-align: center;
 }
 
 #ulRecipes {
   list-style: inside;
-  width: 50%;
+  width: 75%;
   margin: auto;
+  padding: 0;
+  background-color: #a01d26;
+  color: #f4f4ef;
+  border-radius: 20px;
+  padding: 1em;
+  font-size: 1.5em;
 }
+#ulRecipes li {
+  text-align: left;
+  padding-bottom: 0.75em;
+}
+
+#ulRecipes li:last-child {
+  padding-bottom: initial;
+}
+
+#ulRecipes li:hover {
+  text-shadow: 0.25em 0.25em 0.25em #20232a;
+}
+
 #ingredientList {
   width: 60%;
   margin: auto;
@@ -125,6 +140,12 @@ button#search {
   column-gap: 0.5em;
   list-style-type: none;
   text-align: left;
+  font-size: 1.5em;
+  padding: 1em;
+  background-color: #20232a;
+  color: #f4f4ef;
+  border-radius: 20px;
+  font-weight: lighter;
 }
 
 #ingsDiv.leftIngList {
@@ -136,8 +157,14 @@ button#search {
 }
 #recipeTitle {
   text-align: center;
+  margin: 1em auto;
+  margin-bottom: 0.5em;
+  width: 50%;
+  font-size: 2.5em;
+  text-decoration: underline #20232a;
 }
 #instruct {
+  font-size: 1.5em;
   text-align: left;
   width: 70%;
   margin: 1.5em auto;
@@ -148,7 +175,15 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2rem;
+  color: #20232a;
 }
-footer h4 {
-  margin-top: 0;
+
+#homeButton {
+  text-decoration: none;
+  color: #f4f4ef;
+  background-color: #20232a;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  margin-top: 4em;
+  font-size: 1.2em;
 }

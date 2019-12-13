@@ -25,9 +25,11 @@ function searchByCategory() {
   $.get("/search", { category: category }, function(data) {
     //console.log("Back from server with:");
     //console.log(data);
-
+    console.log(category);
     $("#ulRecipes").empty();
-    $("#ulRecipes").prepend("<h2 id='recTitle'>Recipes</h2>");
+    document.getElementById("recTitle").style.visibility = "visible";
+
+    document.getElementById("ulRecipes").style.visibility = "visible";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
@@ -43,6 +45,14 @@ function getRecipeById(recipe_id) {
   $.get("/recipe", { recipe_id: recipe_id }, function(data) {
     $("#ulRecipes").empty();
     $("#recipeDiv").empty();
+    document.getElementById("searchDiv").style.display = "none";
+    document.getElementById("mainTitle").style.marginBottom = ".5em";
+    var homeButton = document.createElement("a");
+    homeButton.id = "homeButton";
+    homeButton.innerText = "Back to Home";
+    homeButton.href = "../cookbook.html";
+    $("#titleDiv").append(homeButton);
+
     //$("#recipeDiv").prepend(`<h2>${data.list.recipe_name}</h2>`);
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
