@@ -27,7 +27,7 @@ function searchByCategory() {
     //console.log(data);
 
     $("#ulRecipes").empty();
-    $("#ulRecipes").prepend("<h2>Recipes</h2>");
+    $("#ulRecipes").prepend("<h2 id='recTitle'>Recipes</h2>");
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 

@@ -1,22 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Crete+Round|Kalam&display=swap");
+/*
+#882426 - burgundy
+#CDBEA7 - Oatmeal
+#323030 - Cinder
+#C29545 - Gold
+*/
+
+/*
+20232a - ink
+acbebe - aluminum
+f4f4ef - paper
+a01d26 - ruby red
+*/
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-#content {
-  width: 75%;
-  margin: auto;
-  text-align: center;
+  font-family: "Crete Round", serif;
+  margin: 0;
+  background-color: #acbebe;
+  color: #a01d26;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Kalam", cursive;
+}
+
+#content {
+  position: relative;
+  min-height: 100vh;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+#mainContent {
+  padding-bottom: 2rem; /* Footer height */
+}
+
+header img {
+  margin: auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+}
+#mainTitle {
+  margin: 0;
+
+  padding-bottom: 0.1em;
+  font-size: 2em;
+  text-shadow: 0.25em 0.25em 0.25em #20232a;
+}
+
+#titleDiv {
+  background-color: #a01d26;
+  color: #f4f4ef;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 1.5em;
+  padding: 1em;
+  position: absolute;
+  z-index: 4;
+  top: 9.75em;
+  left: 32%;
+}
+
+#searchDiv {
+  padding-top: 0.5em;
+}
+#catOptions,
+#search {
+  font-size: 1.25em;
+  font-family: "Crete Round", serif;
+  border-radius: 10px;
+  padding: 0.2em;
+}
+
+#catOptions {
+  background-color: #f4f4ef;
+}
+
+#search {
+  background-color: #20232a;
+  color: #f4f4ef;
+  border: none;
+}
+button#search {
+  padding: 0.3em;
+  margin-left: 0.25em;
+}
+
+#search:hover {
+  box-shadow: 0.25em 0.25em 0.25em #acbebe;
+}
 #recipeDiv {
   text-align: left;
+  justify-content: center;
+}
+
+#recTitle {
+  margin: 1em;
+}
+
+#ulDiv {
+  width: 50%;
+  margin: auto;
 }
 
 #ulRecipes {
   list-style: inside;
+  width: 50%;
+  margin: auto;
 }
 #ingredientList {
-  width: 75%;
+  width: 60%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -37,6 +139,16 @@ body {
 }
 #instruct {
   text-align: left;
-  width: 80%;
-  margin: 1em auto;
+  width: 70%;
+  margin: 1.5em auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+}
+footer h4 {
+  margin-top: 0;
 }
