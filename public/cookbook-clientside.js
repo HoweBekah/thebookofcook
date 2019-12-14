@@ -46,10 +46,10 @@ function searchByCategory() {
     console.log(category);
     $("#ulRecipes").empty();
     document.getElementById("allRecipes").style.display = "none";
-    document.getElementById("ulDiv").style.display = "contents";
-    document.getElementById("recTitle").style.display = "contents";
+    document.getElementById("ulDiv").style.display = "unset";
+    document.getElementById("recTitle").style.display = "unset";
 
-    document.getElementById("ulRecipes").style.display = "contents";
+    document.getElementById("ulRecipes").style.display = "unset";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
