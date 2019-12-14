@@ -52,13 +52,6 @@ function searchByCategory() {
     document.getElementById("recTitle").style.display = "inherit";
     document.getElementById("ulRecipes").style.display = "inherit";
 
-    document.getElementById("#searchDiv").style.marginBottom = ".5em";
-    var homeButton = document.createElement("a");
-    homeButton.id = "homeButton";
-    homeButton.innerText = "Back to Home";
-    homeButton.href = "../cookbook.html";
-    $("#titleDiv").append(homeButton);
-
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
