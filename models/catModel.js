@@ -11,9 +11,9 @@ function getAllCats(callback) {
     if (err) {
       throw err;
     } else {
-      console.log("Back from DB with: ");
-      console.log(DBres.rows.category);
-      console.log(DBres);
+      // console.log("Back from DB with: ");
+      //console.log(DBres.rows.category);
+
       var results = {
         list: DBres.rows
       };
