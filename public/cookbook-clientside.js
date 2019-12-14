@@ -45,6 +45,13 @@ function searchByCategory() {
     //console.log(data);
     console.log(category);
 
+    $("#ulRecipes").empty();
+    document.getElementById("allRecipes").style.display = "none";
+    document.getElementById("mainRecTitle").style.display = "none";
+    document.getElementById("ulDiv").style.display = "inherit";
+    document.getElementById("recTitle").style.display = "inherit";
+    document.getElementById("ulRecipes").style.display = "inherit";
+
     document.getElementById("#searchDiv").style.marginBottom = ".5em";
     var homeButton = document.createElement("a");
     homeButton.id = "homeButton";
@@ -52,13 +59,6 @@ function searchByCategory() {
     homeButton.href = "../cookbook.html";
     $("#titleDiv").append(homeButton);
 
-    $("#ulRecipes").empty();
-    document.getElementById("allRecipes").style.display = "none";
-    document.getElementById("mainRecTitle").style.display = "none";
-    document.getElementById("ulDiv").style.display = "inherit";
-    document.getElementById("recTitle").style.display = "inherit";
-
-    document.getElementById("ulRecipes").style.display = "inherit";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
