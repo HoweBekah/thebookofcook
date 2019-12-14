@@ -3,7 +3,23 @@ const db_url = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString: db_url });
 
 function getAllRecipes(callback) {
-  callback(null, results);
+  var sql =
+    "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes";
+
+  pool.query(sql, function(err, DBres) {
+    if (err) {
+      throw err;
+    } else {
+      // console.log("Back from DB with: ");
+      //console.log(DBres.rows.category);
+
+      var results = {
+        list: DBres.rows
+      };
+
+      callback(null, results);
+    }
+  });
 }
 function getRecipeById(recipe_id, callback) {
   //console.log(`Searching for recipe id: ${recipe_id}`);
