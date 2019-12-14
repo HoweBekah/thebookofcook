@@ -8,26 +8,26 @@ function getAllCats(callback) {
   var sql = "SELECT category FROM category";
 
   pool.query(sql, function(err, DBres) {
-    if (err) {
-      throw err;
-    } else {
-      // console.log("Back from DB with: ");
-      //console.log(DBres.rows.category);
+    // if (err) {
+    //   throw err;
+    // } else {
+    console.log("Back from DB with: ");
+    console.log(DBres.rows.category);
+    console.log(DBres);
+    var results = {
+      list: DBres.rows
+    };
 
-      var results = {
-        list: DBres.rows
-      };
-
-      callback(null, results);
-    }
+    callback(null, results);
+    //}
   });
 }
 function searchByCategory(category, callback) {
   //console.log(`Searching for category: ${category}`);
   var sql =
     "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE category=$1::text";
-  var params = [category];
-  pool.query(sql, params, function(err, DBres) {
+
+  pool.query(sql, category, function(err, DBres) {
     if (err) {
       throw err;
     } else {
