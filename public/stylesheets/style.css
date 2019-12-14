@@ -120,12 +120,16 @@ button#search {
   padding: 1em;
   font-size: 1.5em;
 }
-#ulRecipes li {
+#allRecipes {
+  width: 60%;
+}
+#ulRecipes li,
+#allRecipes li {
   text-align: left;
   padding-bottom: 0.75em;
 }
 
-#ulRecipes li:last-child {
+#ulRecipes li:last-child #allRecipes li:last-child {
   padding-bottom: initial;
 }
 

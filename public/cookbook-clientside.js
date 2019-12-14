@@ -18,6 +18,7 @@ window.onload = function getAllCats() {
     var allRecipes = document.createElement("ul");
     allRecipes.id = "allRecipes";
     $("#recipeDiv").append(allRecipes);
+    document.getElementById("recTitle").style.display = "contents";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
       $("#allRecipes").append(`<li>${recList.recipe_name}</li>`);
@@ -37,9 +38,9 @@ function searchByCategory() {
     //console.log(data);
     console.log(category);
     $("#ulRecipes").empty();
-    document.getElementById("recTitle").style.visibility = "visible";
+    document.getElementById("recTitle").style.display = "contents";
 
-    document.getElementById("ulRecipes").style.visibility = "visible";
+    document.getElementById("ulRecipes").style.display = "contents";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
