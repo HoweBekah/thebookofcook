@@ -108,7 +108,8 @@ button#search {
   text-align: center;
 }
 
-#ulRecipes {
+#ulRecipes,
+#allRecipes {
   list-style: inside;
   width: 75%;
   margin: auto;
