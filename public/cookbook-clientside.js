@@ -1,6 +1,7 @@
 window.onload = function getAllCats() {
   //console.log("Butts.com");
 
+  document.getElementById("allRecipes").style.display = "contents";
   $.get("/categories", function(data) {
     //console.log("Back from server with:");
     //console.log(data);
@@ -45,7 +46,7 @@ function searchByCategory() {
     //console.log(data);
     console.log(category);
     $("#ulRecipes").empty();
-    $("#allRecipes").empty();
+    document.getElementById("allRecipes").style.display = "none";
     document.getElementById("ulDiv").style.display = "contents";
     document.getElementById("recTitle").style.display = "contents";
 
