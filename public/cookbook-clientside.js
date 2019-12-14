@@ -46,7 +46,7 @@ function searchByCategory() {
     console.log(category);
     $("#ulRecipes").empty();
     $("#allRecipes").empty();
-
+    document.getElementById("ulDiv").style.display = "contents";
     document.getElementById("recTitle").style.display = "contents";
 
     document.getElementById("ulRecipes").style.display = "contents";
