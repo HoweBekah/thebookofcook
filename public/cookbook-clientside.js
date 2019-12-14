@@ -21,7 +21,9 @@ window.onload = function getAllCats() {
     document.getElementById("recTitle").style.display = "contents";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
-      $("#allRecipes").append(`<li>${recList.recipe_name}</li>`);
+      $("#allRecipes").append(
+        `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
+      );
     }
   });
 };
