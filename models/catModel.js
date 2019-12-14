@@ -26,8 +26,8 @@ function searchByCategory(category, callback) {
   //console.log(`Searching for category: ${category}`);
   var sql =
     "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes WHERE category=$1::text";
-
-  pool.query(sql, category, function(err, DBres) {
+  var params = [category];
+  pool.query(sql, params, function(err, DBres) {
     if (err) {
       throw err;
     } else {
