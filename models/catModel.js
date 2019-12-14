@@ -42,13 +42,6 @@ function searchByCategory(category, callback) {
     }
   });
 }
-function getCatById(id, callback) {
-  //get cat from DB that matches that id
-
-  var results = { id: 1, category: "main dishes" };
-
-  callback(null, results);
-}
 
 function insertNewCat(name, callback) {
   //create new topic in database with provided name
@@ -60,6 +53,5 @@ function insertNewCat(name, callback) {
 module.exports = {
   getAllCats: getAllCats,
   searchByCategory: searchByCategory,
-  getCatById: getCatById,
   insertNewCat: insertNewCat
 };

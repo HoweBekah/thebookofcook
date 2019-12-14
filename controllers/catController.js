@@ -8,8 +8,6 @@ function search(req, res) {
   });
 }
 function getCatList(req, res) {
-  //get list of categories
-  //console.log("getting categories");
   catModel.getAllCats(function(error, results) {
     res.json(results);
   });

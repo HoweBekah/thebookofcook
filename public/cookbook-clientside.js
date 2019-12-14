@@ -13,6 +13,16 @@ window.onload = function getAllCats() {
       $("#catOptions").append(`<option>${recList.category}</option>`);
     }
   });
+
+  $.get("/recipes", function(data) {
+    var allRecipes = document.createElement("ul");
+    allRecipes.id = "allRecipes";
+    $("#recipeDiv").append(allRecipes);
+    for (var i = 0; i < data.list.length; i++) {
+      var recList = data.list[i];
+      $("#allRecipes").append(`<li>${recList.recipe_name}</li>`);
+    }
+  });
 };
 //read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
 
