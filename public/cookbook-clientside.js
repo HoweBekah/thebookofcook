@@ -13,9 +13,7 @@ window.onload = function getAllCats() {
       $("#catOptions").append(`<option>${recList.category}</option>`);
     }
   });
-};
 
-window.onload = function getAllRecipes() {
   $.get("/recipes", function(data) {
     var mainRecTitle = document.createElement("h2");
     mainRecTitle.id = "mainRecTitle";
