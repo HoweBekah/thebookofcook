@@ -122,6 +122,7 @@ button#search {
 }
 #allRecipes {
   width: 50%;
+  font-size: 2em;
 }
 #ulRecipes li,
 #allRecipes li {
@@ -133,7 +134,8 @@ button#search {
   padding-bottom: initial;
 }
 
-#ulRecipes li:hover {
+#ulRecipes li:hover,
+#allRecipes li:hover {
   text-shadow: 0.25em 0.25em 0.25em #20232a;
 }
 
