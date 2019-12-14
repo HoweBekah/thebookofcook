@@ -15,7 +15,6 @@ window.onload = function getAllCats() {
   });
 
   $.get("/recipes", function(data) {
-    document.getElementById("allRecipes").style.display = "contents";
     var mainRecTitle = document.createElement("h2");
     mainRecTitle.id = "mainRecTitle";
     mainRecTitle.innerText = "Recipes";
@@ -31,6 +30,7 @@ window.onload = function getAllCats() {
         `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
       );
     }
+    document.getElementById("allRecipes").style.display = "contents";
   });
 };
 //read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
