@@ -13,7 +13,9 @@ window.onload = function getAllCats() {
       $("#catOptions").append(`<option>${recList.category}</option>`);
     }
   });
+};
 
+window.onload = function getAllRecipes() {
   $.get("/recipes", function(data) {
     var mainRecTitle = document.createElement("h2");
     mainRecTitle.id = "mainRecTitle";
@@ -32,6 +34,7 @@ window.onload = function getAllCats() {
     }
   });
 };
+
 //read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
 
 function searchByCategory() {
