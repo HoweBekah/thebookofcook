@@ -18,6 +18,7 @@ window.onload = function getAllCats() {
     var allRecipes = document.createElement("ol");
     allRecipes.id = "allRecipes";
     $("#recipeDiv").append(allRecipes);
+    $("#recipeDiv").append("recTitle");
     document.getElementById("recTitle").style.display = "contents";
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
