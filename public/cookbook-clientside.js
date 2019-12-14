@@ -1,7 +1,6 @@
 window.onload = function getAllCats() {
   //console.log("Butts.com");
 
-  document.getElementById("allRecipes").style.display = "contents";
   $.get("/categories", function(data) {
     //console.log("Back from server with:");
     //console.log(data);
@@ -16,6 +15,7 @@ window.onload = function getAllCats() {
   });
 
   $.get("/recipes", function(data) {
+    document.getElementById("allRecipes").style.display = "contents";
     var mainRecTitle = document.createElement("h2");
     mainRecTitle.id = "mainRecTitle";
     mainRecTitle.innerText = "Recipes";
