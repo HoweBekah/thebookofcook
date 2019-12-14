@@ -15,10 +15,15 @@ window.onload = function getAllCats() {
   });
 
   $.get("/recipes", function(data) {
+    var mainRecTitle = document.createElement("h2");
+    mainRecTitle.id = "mainRecTitle";
+    mainRecTitle.innerText = "Recipes";
+    $("#recipeDiv").append(mainRecTitle);
+
     var allRecipes = document.createElement("ol");
     allRecipes.id = "allRecipes";
     $("#recipeDiv").append(allRecipes);
-    document.getElementById("recTitle").style.display = "contents";
+
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
       $("#allRecipes").append(
