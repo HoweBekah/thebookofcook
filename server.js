@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 //cat gets and posts
 app.get("/categories", catController.getCatList);
 app.get("/search", catController.search);
+app.get("/recipe", catController.search);
 
 //recipes gets and posts
 app.get("/search", recipeController.search);
