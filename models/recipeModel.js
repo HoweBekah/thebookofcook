@@ -30,18 +30,18 @@ function getRecipeById(recipe_id, callback) {
 
   //console.log(params);
   pool.query(sql, function(err, DBres) {
-    if (err) {
-      throw err;
-    } else {
-      //console.log("Back from DB with: ");
-      //console.log(DBres);
+    // if (err) {
+    //   throw err;
+    // } else {
+    //console.log("Back from DB with: ");
+    //console.log(DBres);
 
-      var results = {
-        list: DBres.rows
-      };
+    var results = {
+      list: DBres.rows
+    };
 
-      callback(null, results);
-    }
+    callback(null, results);
+    //}
   });
 }
 function insertNewRecipe(
