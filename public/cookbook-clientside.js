@@ -64,6 +64,8 @@ function searchByCategory() {
 
     var myForm = document.createElement("form");
     myForm.id = "newRecForm";
+    myForm.method = "POST";
+    myForm.action = "/recipe";
 
     myForm.innerHTML = `<legend>New Recipe</legend>
       <input type="text" id="recipe_name" required />

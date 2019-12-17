@@ -1,5 +1,6 @@
 const { Pool } = require("pg");
-const db_url = process.env.DATABASE_URL;
+const db_url =
+  "postgres://kqotaghsxoznkx:271e9a30b8f55b07e48f06395425ac2e40e5e1e1f2dcbb212b2a40bc8bfa41a0@ec2-174-129-254-235.compute-1.amazonaws.com:5432/d87nm6ji9guua9?ssl=true";
 const pool = new Pool({ connectionString: db_url });
 
 function getAllRecipes(callback) {
@@ -8,6 +9,7 @@ function getAllRecipes(callback) {
 
   pool.query(sql, function(err, DBres) {
     if (err) {
+      console.log(err);
       throw err;
     } else {
       // console.log("Back from DB with: ");
@@ -30,18 +32,19 @@ function getRecipeById(recipe_id, callback) {
 
   //console.log(params);
   pool.query(sql, function(err, DBres) {
-    // if (err) {
-    //   throw err;
-    // } else {
-    //console.log("Back from DB with: ");
-    //console.log(DBres);
+    if (err) {
+      throw err;
+    } else {
+      console.log("Found result: " + JSON.stringify(DBres.rows));
+      //console.log("Back from DB with: ");
+      //console.log(DBres);
 
-    var results = {
-      list: DBres.rows
-    };
+      var results = {
+        list: DBres.rows
+      };
 
-    callback(null, results);
-    //}
+      callback(null, results);
+    }
   });
 }
 function insertNewRecipe(
