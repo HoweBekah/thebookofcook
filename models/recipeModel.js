@@ -44,17 +44,38 @@ function getRecipeById(recipe_id, callback) {
     }
   });
 }
-function insertNewRecipe(recipeName, ingredients, instructions, callback) {
-  var results = {
-    success: true,
-    recipe: {
-      id: 1,
-      recipeName: recipeName,
-      ingredients: ingredients,
-      instructions: instructions
-    }
+function insertNewRecipe(
+  recipe_name,
+  ingredients,
+  instructions,
+  catId,
+  callback
+) {
+  var data = {
+    recipe_name: recipe_name,
+    ingredients: ingredients,
+    instructions: instructions,
+    catId: catId
   };
-  callback(null, results);
+  console.log(data);
+  var sql =
+    "INSERT INTO recipes SET `recipe_name` =?, `ingredients`=?, `instructions`=?, `category`=?";
+
+  //console.log(params);
+  pool.query(sql, data, function(err, DBres) {
+    if (err) {
+      throw err;
+    } else {
+      //console.log("Back from DB with: ");
+      //console.log(DBres);
+
+      var results = {
+        list: DBres.rows
+      };
+
+      callback(null, results);
+    }
+  });
 }
 function recipeToCat(recipeId, catId, callback) {
   var results = {

@@ -21,15 +21,19 @@ function getRecipe(req, res) {
 }
 function insertNewRecipe(req, res) {
   //catid and recipeId
-  var recipeName;
-  var ingredients;
-  var instructions;
-  recipeModel.insertNewRecipe(recipeName, ingredients, instructions, function(
-    error,
-    results
-  ) {
-    res.json(results);
-  });
+  var recipe_name = req.param("recipe_name");
+  var ingredients = req.param("recipe_ingredients");
+  var instructions = req.param("recipe_instructions");
+  var catId = req.param("recipe_cat");
+  recipeModel.insertNewRecipe(
+    recipe_name,
+    ingredients,
+    instructions,
+    catId,
+    function(error, results) {
+      res.json(results);
+    }
+  );
 }
 function recipeToCat(req, res) {
   var recipeId;

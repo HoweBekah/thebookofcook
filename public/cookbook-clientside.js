@@ -52,6 +52,7 @@ function searchByCategory() {
     document.getElementById("ulDiv").style.display = "inherit";
     document.getElementById("recTitle").style.display = "inherit";
     document.getElementById("ulRecipes").style.display = "inherit";
+    document.getElementById("formDiv").style.display = "inherit";
 
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
@@ -60,6 +61,11 @@ function searchByCategory() {
         `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
       );
     }
+
+    $(
+      "#formDiv"
+    ).append(`<input type="text" id="formCat" value="${recList.category}" disabled />
+      <input type='submit' value='Add Recipe' id='recSubmit' />`);
   });
 
   $.get("/recipe", { category: category }, function(data) {
