@@ -52,7 +52,7 @@ function searchByCategory() {
     document.getElementById("ulDiv").style.display = "inherit";
     document.getElementById("recTitle").style.display = "inherit";
     document.getElementById("ulRecipes").style.display = "inherit";
-    document.getElementById("formDiv").style.display = "inherit";
+    //document.getElementById("formDiv").style.display = "inherit";
 
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
@@ -62,10 +62,15 @@ function searchByCategory() {
       );
     }
 
-    $(
-      "#formDiv"
-    ).append(`<input type="text" id="formCat" value="${recList.category}" disabled />
-      <input type='submit' value='Add Recipe' id='recSubmit' />`);
+    var myForm = document.createElement("form");
+    myForm.id = "newRecForm";
+
+    myForm.innerHTML = `<legend>New Recipe</legend>
+      <input type="text" id="recipe_name" required />
+      <textarea id="recipe_ingredients" rows="20" cols="20" placeholder="One ingredient per line" required>
+      <textarea id='recipe_instructions'required></textarea>
+      <input type="text" id="formCat" value="${recList.category}" disabled />
+      <input type='submit' value='Add Recipe' id='recSubmit' />`;
   });
 
   $.get("/recipe", { category: category }, function(data) {
