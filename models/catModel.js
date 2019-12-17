@@ -8,18 +8,18 @@ function getAllCats(callback) {
   var sql = "SELECT category FROM category";
 
   pool.query(sql, function(err, DBres) {
-    if (err) {
-      throw err;
-    } else {
-      // console.log("Back from DB with: ");
-      //console.log(DBres.rows.category);
+    // if (err) {
+    //   throw err;
+    // } else {
+    // console.log("Back from DB with: ");
+    //console.log(DBres.rows.category);
 
-      var results = {
-        list: DBres.rows
-      };
+    var results = {
+      list: DBres.rows
+    };
 
-      callback(null, results);
-    }
+    callback(null, results);
+    // }
   });
 }
 function searchByCategory(category, callback) {
