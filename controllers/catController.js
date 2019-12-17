@@ -7,11 +7,11 @@ function search(req, res) {
     res.json(results);
   });
 }
-// function getCatList(req, res) {
-//   catModel.getAllCats(function(error, results) {
-//     res.json(results);
-//   });
-// }
+function getCatList(req, res) {
+  catModel.getAllCats(function(error, results) {
+    res.json(results);
+  });
+}
 
 // function getCat(req, res) {
 //   //get 1category's recipes by catid
@@ -33,7 +33,7 @@ function search(req, res) {
 
 module.exports = {
   search: search
-  // getCatList: getCatList,
+   getCatList: getCatList,
   // getCat: getCat,
   // postCat: postCat
 };
