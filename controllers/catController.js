@@ -7,29 +7,29 @@ function search(req, res) {
     res.json(results);
   });
 }
-function getCatList(req, res) {
-  catModel.getAllCats(function(error, results) {
-    res.json(results);
-  });
-}
+// function getCatList(req, res) {
+//   catModel.getAllCats(function(error, results) {
+//     res.json(results);
+//   });
+// }
 
-function getCat(req, res) {
-  //get 1category's recipes by catid
-  var id = req.query.id;
-  //console.log("getting category recipes");
-  catModel.getCatById(id, function(error, results) {
-    res.json(results);
-  });
-}
+// function getCat(req, res) {
+//   //get 1category's recipes by catid
+//   var id = req.query.id;
+//   //console.log("getting category recipes");
+//   catModel.getCatById(id, function(error, results) {
+//     res.json(results);
+//   });
+// }
 
-function postCat(req, res) {
-  var recipe = req.body.recipe;
-  catModel.insertNewCat(recipe, function(error, results) {
-    res.json(results);
-  });
+// function postCat(req, res) {
+//   var recipe = req.body.recipe;
+//   catModel.insertNewCat(recipe, function(error, results) {
+//     res.json(results);
+//   });
 
-  console.log("creating new recipe: " + recipe);
-}
+//   console.log("creating new recipe: " + recipe);
+// }
 
 module.exports = {
   search: search,
