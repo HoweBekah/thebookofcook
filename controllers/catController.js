@@ -32,8 +32,8 @@ function getCatList(req, res) {
 // }
 
 module.exports = {
-  search: search
-   getCatList: getCatList,
+  search: search,
+  getCatList: getCatList
   // getCat: getCat,
   // postCat: postCat
 };
