@@ -61,40 +61,48 @@ function searchByCategory() {
         `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
       );
     }
+    if (myForm) {
+      myForm.empty();
+    } else {
+      var myForm = document.createElement("form");
+      myForm.id = "newRecForm";
+      myForm.method = "POST";
+      myForm.action = "/recipe";
 
-    var myForm = document.createElement("form");
-    myForm.id = "newRecForm";
-    myForm.method = "POST";
-    myForm.action = "/recipe";
-
-    myForm.innerHTML = `<legend>New Recipe</legend>
-      <input type="text" id="recipe_name" required />
-      <textarea id="recipe_ingredients" rows="20" cols="20" placeholder="One ingredient per line" required>
-      <textarea id='recipe_instructions'required></textarea>
+      myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
+    <label for="recipe_name">Recipe Name:</label>
+      <input type="text" id="recipe_name" name="recipe_name" required />
+      <label for="recipe_ingredients">Ingredients:</label>
+      <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
+      <label for="recipe_instructions">Instructions:</label>
+      <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
+      <label for="formCat">Category:</label>
       <input type="text" id="formCat" value="${recList.category}" disabled />
-      <input type='submit' value='Add Recipe' id='recSubmit' />`;
-  });
-
-  $.get("/recipe", { category: category }, function(data) {
-    //console.log("Back from server with:");
-    //console.log(data);
-    console.log(category);
-
-    $("#ulRecipes").empty();
-    document.getElementById("allRecipes").style.display = "none";
-    document.getElementById("mainRecTitle").style.display = "none";
-    document.getElementById("ulDiv").style.display = "inherit";
-    document.getElementById("recTitle").style.display = "inherit";
-    document.getElementById("ulRecipes").style.display = "inherit";
-
-    for (var i = 0; i < data.list.length; i++) {
-      var recList = data.list[i];
-
-      $("#ulRecipes").append(
-        `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
-      );
+      <input type='submit' value='Add Recipe' id='recSubmit' /></fieldset>`;
     }
+    $("#recipeDiv").append(myForm);
   });
+
+  // $.get("/recipe", { category: category }, function(data) {
+  //   //console.log("Back from server with:");
+  //   //console.log(data);
+  //   console.log(category);
+
+  //   $("#ulRecipes").empty();
+  //   // document.getElementById("allRecipes").style.display = "none";
+  //   // document.getElementById("mainRecTitle").style.display = "none";
+  //   // document.getElementById("ulDiv").style.display = "inherit";
+  //   // document.getElementById("recTitle").style.display = "inherit";
+  //   // document.getElementById("ulRecipes").style.display = "inherit";
+
+  //   for (var i = 0; i < data.list.length; i++) {
+  //     var recList = data.list[i];
+
+  //     $("#ulRecipes").append(
+  //       `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
+  //     );
+  //   }
+  // });
 }
 
 function getRecipeById(recipe_id) {
@@ -122,15 +130,15 @@ function getRecipeById(recipe_id) {
 
       var ingreds = recList.ingredients;
       var ingList = ingreds.split(",");
-      console.log(ingList);
+      //console.log(ingList);
       for (var i = 0; i < ingList.length; i++) {
         if (i % 2 != 0) {
-          console.log(`Odd: ${ingList[i]}`);
+          //console.log(`Odd: ${ingList[i]}`);
           $("#ingredientList").append(
             `<li class= "rightIngList">${ingList[i]}</li>`
           );
         } else {
-          console.log(`Even: ${ingList[i]}`);
+          //console.log(`Even: ${ingList[i]}`);
           $("#ingredientList").append(
             `<li class= "leftIngList">${ingList[i]}</li>`
           );

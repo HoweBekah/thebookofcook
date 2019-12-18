@@ -35,7 +35,7 @@ function getRecipeById(recipe_id, callback) {
     if (err) {
       throw err;
     } else {
-      console.log("Found result: " + JSON.stringify(DBres.rows));
+      //console.log("Found result: " + JSON.stringify(DBres.rows));
       //console.log("Back from DB with: ");
       //console.log(DBres);
 
@@ -47,22 +47,15 @@ function getRecipeById(recipe_id, callback) {
     }
   });
 }
-function insertNewRecipe(
-  recipe_name,
-  ingredients,
-  instructions,
-  catId,
-  callback
-) {
-  var data = {
-    recipe_name: recipe_name,
-    ingredients: ingredients,
-    instructions: instructions,
-    catId: catId
-  };
-  console.log(data);
-  var sql =
-    "INSERT INTO recipes SET `recipe_name` =?, `ingredients`=?, `instructions`=?, `category`=?";
+function insertNewRecipe(data, callback) {
+  // var data = {
+  //   recipe_name: recipe_name,
+  //   ingredients: ingredients,
+  //   instructions: instructions,
+  //   catId: catId
+  // };
+  console.log("You are the data:" + data);
+  var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, ${data.recipe_name},${data.recipe_ingredients}, ${data.recipe_instructions},${data.formCat})`;
 
   //console.log(params);
   pool.query(sql, data, function(err, DBres) {
