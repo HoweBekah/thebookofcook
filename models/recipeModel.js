@@ -1,7 +1,22 @@
-const { Pool } = require("pg");
+const { Pool, Client } = require("pg");
 const db_url =
   "postgres://kqotaghsxoznkx:271e9a30b8f55b07e48f06395425ac2e40e5e1e1f2dcbb212b2a40bc8bfa41a0@ec2-174-129-254-235.compute-1.amazonaws.com:5432/d87nm6ji9guua9?ssl=true";
 const pool = new Pool({ connectionString: db_url });
+
+// const client = new Client({
+//   connectionString: db_url,
+//   ssl: true
+// });
+
+// client.connect();
+
+// client.query("SELECT recipe_name FROM recipes;", (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
 
 function getAllRecipes(callback) {
   var sql =

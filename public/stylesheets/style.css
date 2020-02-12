@@ -91,7 +91,7 @@ button#search {
 }
 
 #search:hover,
-#homeButton:hover {
+.navButtons:hover {
   box-shadow: 0.25em 0.25em 0.25em #acbebe;
 }
 #recipeDiv {
@@ -192,7 +192,7 @@ footer {
   color: #50312f;
 }
 
-#homeButton {
+.navButtons {
   text-decoration: none;
   color: #f4f4ef;
   background-color: #50312f;

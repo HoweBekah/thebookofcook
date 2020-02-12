@@ -5,6 +5,7 @@ const path = require("path");
 
 const catController = require("./controllers/catController.js");
 const recipeController = require("./controllers/recipeController.js");
+const accountController = require("./controllers/accountController.js");
 
 const PORT = process.env.PORT || 8080;
 
@@ -23,6 +24,10 @@ app.get("/recipes", recipeController.getRecipeList);
 app.get("/recipe", recipeController.getRecipe);
 app.post("/recipe", recipeController.insertNewRecipe);
 app.post("/recipeToCat", recipeController.recipeToCat);
+
+//user post and get
+app.get("/account", accountController.getUser);
+app.post("/account", accountController.newUser);
 
 app.listen(PORT, function() {
   console.log(`Listening on ${PORT}`);
