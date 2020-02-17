@@ -5,7 +5,7 @@ const pool = new Pool({ connectionString: db_url });
 
 function getAllCats(callback) {
   //get all the topics from DB
-  console.log("Entered getAllCats");
+  //console.log("Entered getAllCats");
   var sql = "SELECT category FROM category";
 
   pool.query(sql, function(err, DBres) {

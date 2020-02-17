@@ -27,7 +27,7 @@ app.post("/recipeToCat", recipeController.recipeToCat);
 
 //user post and get
 app.get("/account", accountController.getUser);
-app.post("/account", accountController.newUser);
+//app.post("/account", accountController.newUser);
 
 app.listen(PORT, function() {
   console.log(`Listening on ${PORT}`);

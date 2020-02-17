@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Howe Family Cookbook</title>
+    <title>Howe Family Cookbook ~ Login</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="cookbook-clientside.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -29,32 +29,29 @@
             <a class="navButtons" href="../registration.html">Sign Up</a>
           </div>
         </header>
-        <div id="recipeDiv">
-          <div id="ulDiv" style="display:none">
-            <h2 id="recTitle" style="display:none">Recipes</h2>
-            <ul id="ulRecipes" style="display: none"></ul>
-          </div>
-        </div>
-        <!--<div id="formDiv" style="display:none">
-          <form id="newRecForm" method="POST" action="">
-            <legend>New Recipe</legend>
-            <input type="text" id="recipe_name" required />
-            <textarea
-              id="recipe_ingredients"
-              rows="20"
-              cols="20"
-              placeholder="One ingredient per line"
-              required
-            >
-            <textarea id='recipe_instructions'required></textarea
-            >
-             <input type="text" id="formCat" value="" disabled />
-            <input type="submit" value="Add Recipe" id="recSubmit" />
-            Write out form then put in clientside.js
-            don't forget to create the array of ingredients with ingredients.split(",")
-          </form>
-        </div>-->
-      </div>
+        
+            <form action="/account" method="post" id="loginDiv">
+                <fieldset>
+                    <legend>Login</legend>
+                    <label for="email">Email:</label>
+                    <input type="email" name="account_email" id="email" placeholder="jonsmith@demo.com"required /><br />
+                    <label for="password">Password:</label>
+                    <input type="password" name="account_password" id="password" minlength="8" required /><br />
+                    <div id="passreq">
+                        <p>Password must have at least:</p>
+                        <ul>
+                            <li>8 characters</li>
+                            <li>1 letter</li>
+                            <li>1 number</li>
+                            <li>1 special character</li>
+                        </ul>
+                    </div>
+    
+                    <input type="submit" name="submit" id="submit" />
+                    <input type="hidden" name="action" value="Login">
+                </fieldset>
+            </form>
+      
       <footer>
         <h4>
           &copy;2019 | Howe Family Cookbook | Created by Bekah Howe
