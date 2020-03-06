@@ -39,10 +39,10 @@ function createNewUser(
   //console.log(passHash);
   var sql = `INSERT INTO accounts (account_id, account_lname, account_fname, account_email, account_password) VALUES(DEFAULT, '${account_lname}', '${account_fname}', '${account_email}', '${passHash}');`;
 
-  pool.query(sql, (err, DBres) => {
-    //console.log("Inserted Data");
+  pool.query(sql, (err, res) => {
+    console.log("Inserted Data");
 
-    console.log(err, DBres);
+    console.log(err, res);
     pool.end();
   });
 }

@@ -62,49 +62,49 @@ function searchByCategory() {
       );
     }
 
-    $.post("/recipe", { category: category }, function(data) {
-      var myForm = document.createElement("form");
-      myForm.id = "newRecForm";
-      myForm.method = "POST";
-      myForm.action = "/recipe";
-      //console.log(category);
-      myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
-        <label for="recipe_name">Recipe Name:</label>
-          <input type="text" id="recipe_name" name="recipe_name" required />
-          <label for="recipe_ingredients">Ingredients:</label>
-          <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-          <label for="recipe_instructions">Instructions:</label>
-          <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
+    // $.post("/recipe", { category: category }, function(data) {
+    //   var myForm = document.createElement("form");
+    //   myForm.id = "newRecForm";
+    //   myForm.method = "POST";
+    //   myForm.action = "/recipe";
+    //   //console.log(category);
+    //   myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
+    //     <label for="recipe_name">Recipe Name:</label>
+    //       <input type="text" id="recipe_name" name="recipe_name" required />
+    //       <label for="recipe_ingredients">Ingredients:</label>
+    //       <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
+    //       <label for="recipe_instructions">Instructions:</label>
+    //       <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
 
-          <input type="hidden" id="formCat" value="${category}"/>
+    //       <input type="hidden" id="formCat" value="${category}"/>
 
-          <input type='submit' value='Add Recipe' id='recSubmit' onclick="insertNewRecipe()"/></fieldset>`;
-      console.log(myForm);
-    });
+    //       <input type='submit' value='Add Recipe' id='recSubmit' onclick="insertNewRecipe()"/></fieldset>`;
+    //   console.log(myForm);
+    // });
 
-    $("#recipeDiv").append(myForm);
+    //$("#recipeDiv").append(myForm);
 
-    if (myForm) {
-      myForm.empty();
-    } else {
-      var recList = data.list;
-      var myForm = document.createElement("form");
-      myForm.id = "newRecForm";
-      myForm.method = "POST";
-      myForm.action = "/recipe";
+    // if (myForm) {
+    //   myForm.empty();
+    // } else {
+    //   var recList = data.list;
+    //   var myForm = document.createElement("form");
+    //   myForm.id = "newRecForm";
+    //   myForm.method = "POST";
+    //   myForm.action = "/recipe";
 
-      myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
-    <label for="recipe_name">Recipe Name:</label>
-      <input type="text" id="recipe_name" name="recipe_name" required />
-      <label for="recipe_ingredients">Ingredients:</label>
-      <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-      <label for="recipe_instructions">Instructions:</label>
-      <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
-      <label for="formCat">Category:</label>
-      <input type="text" id="formCat" value="${recList.category}" disabled />
-      <input type='submit' value='Add Recipe' id='recSubmit' /></fieldset>`;
-    }
-    $("#recipeDiv").append(myForm);
+    //   myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
+    // <label for="recipe_name">Recipe Name:</label>
+    //   <input type="text" id="recipe_name" name="recipe_name" required />
+    //   <label for="recipe_ingredients">Ingredients:</label>
+    //   <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
+    //   <label for="recipe_instructions">Instructions:</label>
+    //   <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
+    //   <label for="formCat">Category:</label>
+    //   <input type="text" id="formCat" value="${recList.category}" disabled />
+    //   <input type='submit' value='Add Recipe' id='recSubmit' /></fieldset>`;
+    // }
+    // $("#recipeDiv").append(myForm);
   });
 
   // $.get("/recipe", { category: category }, function(data) {
