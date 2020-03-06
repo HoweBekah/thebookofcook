@@ -6,6 +6,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "client-sessions": "^0.8.0",
     "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
@@ -15,6 +16,7 @@
     "heroku-bouncer": "^4.0.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "password-hash": "^1.2.2",
     "pg": "^7.14.0"
   }
 }

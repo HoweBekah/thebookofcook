@@ -41,18 +41,16 @@ function insertNewRecipe(req, res) {
     }
   );
 }
-function recipeToCat(req, res) {
-  var recipeId;
-  var catId;
-  recipeModel.recipeToCat(recipeId, catId, function(error, results) {
-    res.json(results);
-  });
-}
+
+function recipeEdit() {}
+
+function recipeDelete() {}
 
 module.exports = {
   search: search,
   getRecipeList: getRecipeList,
   getRecipe: getRecipe,
   insertNewRecipe: insertNewRecipe,
-  recipeToCat: recipeToCat
+  recipeEdit: recipeEdit,
+  recipeDelete: recipeDelete
 };

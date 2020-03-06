@@ -30,25 +30,19 @@
           </div>
         </header>
         
-            <form action="/account" method="post" id="loginDiv">
+            <form action="/account" method="post" id="registerDiv">
                 <fieldset>
-                    <legend>Login</legend>
+                    <legend>Register</legend>
+                    <label for="fname">First Name:</label>
+                    <input type="text" name="account_fname" id="fname" required /><br />
+                    <label for="lname">Last Name:</label>
+                    <input type="text" name="account_lname" id="lname" required /><br />
                     <label for="email">Email:</label>
                     <input type="email" name="account_email" id="email" placeholder="jonsmith@demo.com"required /><br />
                     <label for="password">Password:</label>
-                    <input type="password" name="account_password" id="password" minlength="8" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required /><br />
-                    <div id="passreq">
-                        <p>Password must have at least:</p>
-                        <ul>
-                            <li>8 characters</li>
-                            <li>1 letter</li>
-                            <li>1 number</li>
-                            <li>1 special character</li>
-                        </ul>
-                    </div>
-    
+                    <input type="password" name="account_password" id="password" minlength="8" required /><br />
+            
                     <input type="submit" name="submit" id="submit" />
-                    <input type="hidden" name="action" value="Login">
                 </fieldset>
             </form>
       

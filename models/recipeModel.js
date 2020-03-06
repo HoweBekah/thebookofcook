@@ -88,16 +88,15 @@ function insertNewRecipe(data, callback) {
     }
   });
 }
-function recipeToCat(recipeId, catId, callback) {
-  var results = {
-    success: true
-  };
-  callback(null, results);
-}
+
+function recipeEdit() {}
+
+function recipeDelete() {}
 
 module.exports = {
   getAllRecipes: getAllRecipes,
   getRecipeById: getRecipeById,
   insertNewRecipe: insertNewRecipe,
-  recipeToCat: recipeToCat
+  recipeEdit: recipeEdit,
+  recipeDelete: recipeDelete
 };

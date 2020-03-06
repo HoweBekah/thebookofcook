@@ -3,11 +3,11 @@ const accountModel = require("../models/accountModel.js");
 function getUser(req, res) {
   var account_id = req.param("account_id");
   //console.log(`Do you work ${recipe_id}`);
-  recipeModel.getUserById(account_id, function(error, results) {
+  accountModel.getUserById(account_id, function(error, results) {
     res.json(results);
   });
 }
-function NewUser(req, res) {
+function newUser(req, res) {
   //catid and recipeId
 
   var account_lname = req.body.account_lname;
@@ -15,22 +15,25 @@ function NewUser(req, res) {
   var account_email = req.body.account_email;
   var account_password = req.body.account_password;
 
-  var data = [account_lname, account_fname, account_email, account_password];
-
-  console.log("Stop sucking. " + data);
-  accountModel.NewUser(
-    data,
-    // recipe_name,
-    // ingredients,
-    // instructions,
-    // catId,
+  console.log(
+    `${account_lname},
+      ${account_fname},
+      ${account_email},
+      ${account_password}`
+  );
+  accountModel.createNewUser(
+    account_lname,
+    account_fname,
+    account_email,
+    account_password,
     function(error, results) {
       res.json(results);
+      console.log("Worky worky!");
     }
   );
 }
 
 module.exports = {
-  //newUser: newUser,
+  newUser: newUser,
   getUser: getUser
 };

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-//
+const bodyParser = require("body-parser");
 
 const catController = require("./controllers/catController.js");
 const recipeController = require("./controllers/recipeController.js");
@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8080;
 
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,11 +24,12 @@ app.get("/search", recipeController.search);
 app.get("/recipes", recipeController.getRecipeList);
 app.get("/recipe", recipeController.getRecipe);
 app.post("/recipe", recipeController.insertNewRecipe);
-app.post("/recipeToCat", recipeController.recipeToCat);
+app.post("/recipeDelete", recipeController.recipeDelete);
+app.post("/recipeEdit", recipeController.recipeEdit);
 
 //user post and get
 app.get("/account", accountController.getUser);
-//app.post("/account", accountController.newUser);
+app.post("/account", accountController.newUser);
 
 app.listen(PORT, function() {
   console.log(`Listening on ${PORT}`);

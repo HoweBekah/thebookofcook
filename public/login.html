@@ -26,26 +26,17 @@
             </div>
             <a class="navButtons" href="../cookbook.html">Home</a>
             <a class="navButtons" href="../login.html">Login</a>
-            <a class="navButtons" href="../registration.html">Sign Up</a>
+            <a class="navButtons" href="../registration.html">Register</a>
           </div>
         </header>
         
-            <form action="/account" method="post" id="loginDiv">
+            <form action="/account" method="get" id="loginDiv">
                 <fieldset>
                     <legend>Login</legend>
                     <label for="email">Email:</label>
                     <input type="email" name="account_email" id="email" placeholder="jonsmith@demo.com"required /><br />
                     <label for="password">Password:</label>
                     <input type="password" name="account_password" id="password" minlength="8" required /><br />
-                    <div id="passreq">
-                        <p>Password must have at least:</p>
-                        <ul>
-                            <li>8 characters</li>
-                            <li>1 letter</li>
-                            <li>1 number</li>
-                            <li>1 special character</li>
-                        </ul>
-                    </div>
     
                     <input type="submit" name="submit" id="submit" />
                     <input type="hidden" name="action" value="Login">
