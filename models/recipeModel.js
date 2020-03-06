@@ -62,7 +62,7 @@ function getRecipeById(recipe_id, callback) {
     }
   });
 }
-function insertNewRecipe(data, callback) {
+function insertNewRecipe(data) {
   // var data = {
   //   recipe_name: recipe_name,
   //   ingredients: ingredients,
@@ -73,19 +73,11 @@ function insertNewRecipe(data, callback) {
   var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, ${data.recipe_name},${data.recipe_ingredients}, ${data.recipe_instructions},${data.formCat})`;
 
   //console.log(params);
-  pool.query(sql, data, function(err, DBres) {
-    if (err) {
-      throw err;
-    } else {
-      //console.log("Back from DB with: ");
-      //console.log(DBres);
+  pool.query(sql, (err, DBres) => {
+    console.log("Inserted Data");
 
-      var results = {
-        list: DBres.rows
-      };
-
-      callback(null, results);
-    }
+    console.log(err, DBres);
+    //pool.end();
   });
 }
 
