@@ -33,17 +33,32 @@ function createNewUser(
   account_lname,
   account_fname,
   account_email,
-  account_password
+  account_password,
+  callback
 ) {
   var passHash = passwordHash.generate(`${account_password}`);
   //console.log(passHash);
   var sql = `INSERT INTO accounts (account_id, account_lname, account_fname, account_email, account_password) VALUES(DEFAULT, '${account_lname}', '${account_fname}', '${account_email}', '${passHash}');`;
 
-  pool.query(sql, (err, res) => {
-    console.log("Inserted Data");
+  // pool.query(sql, (err, res) => {
+  //   console.log("Inserted Data");
 
-    console.log(err, res);
-    pool.end();
+  //   console.log(err, res);
+  //   pool.end();
+
+  // });
+  pool.query(sql, function(err, DBres) {
+    if (err) {
+      throw err;
+    } else {
+      console.log("Back from DB with: ");
+
+      var results = {
+        list: DBres.rows
+      };
+      console.log(DBres.rows);
+      callback(null, results);
+    }
   });
 }
 

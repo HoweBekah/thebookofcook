@@ -31,6 +31,8 @@ window.onload = function getAllCats() {
       );
     }
   });
+
+  $.post("/account", function(data) {});
 };
 
 //read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
