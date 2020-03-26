@@ -15,12 +15,12 @@ function newUser(req, res) {
   var account_email = req.body.account_email;
   var account_password = req.body.account_password;
 
-  console.log(
-    `${account_lname},
-      ${account_fname},
-      ${account_email},
-      ${account_password}`
-  );
+  // console.log(
+  //   `${account_lname},
+  //     ${account_fname},
+  //     ${account_email},
+  //     ${account_password}`
+  // );
   accountModel.createNewUser(
     account_lname,
     account_fname,
@@ -28,7 +28,7 @@ function newUser(req, res) {
     account_password,
     function(error, results) {
       res.json(results);
-      console.log("Worky worky!");
+      // console.log("Worky worky!");
     }
   );
 }

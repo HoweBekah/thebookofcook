@@ -56,7 +56,6 @@ function createNewUser(
       var results = {
         list: DBres.rows
       };
-      console.log(DBres.rows);
       callback(null, results);
     }
   });

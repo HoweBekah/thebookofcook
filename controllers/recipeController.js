@@ -21,21 +21,26 @@ function getRecipe(req, res) {
 }
 function insertNewRecipe(req, res) {
   //catid and recipeId
+  // var recipe_name = req.param("recipe_name");
+  // var recipe_ingredients = req.param("recipe_ingredients");
+  // var recipe_instructions = req.param("recipe_instructions");
+  // var formCat = req.param("formCat");
 
   var recipe_name = req.body.recipe_name;
   var recipe_ingredients = req.body.recipe_ingredients;
   var recipe_instructions = req.body.recipe_instructions;
   var formCat = req.body.formCat;
 
-  var data = [recipe_name, recipe_ingredients, recipe_instructions, formCat];
+  //var data = [recipe_name, recipe_ingredients, recipe_instructions, formCat];
 
-  console.log("Stop sucking. " + data);
+  console.log(
+    `Stop sucking. ${recipe_name}, ${recipe_ingredients}, ${recipe_instructions}, ${formCat}`
+  );
   recipeModel.insertNewRecipe(
-    data,
-    // recipe_name,
-    // ingredients,
-    // instructions,
-    // catId,
+    recipe_name,
+    recipe_ingredients,
+    recipe_instructions,
+    formCat,
     function(error, results) {
       res.json(results);
     }
