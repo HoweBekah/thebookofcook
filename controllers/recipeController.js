@@ -33,9 +33,9 @@ function insertNewRecipe(req, res) {
 
   //var data = [recipe_name, recipe_ingredients, recipe_instructions, formCat];
 
-  console.log(
-    `Stop sucking. ${recipe_name}, ${recipe_ingredients}, ${recipe_instructions}, ${formCat}`
-  );
+  // console.log(
+  //   `Stop sucking. ${recipe_name}, ${recipe_ingredients}, ${recipe_instructions}, ${formCat}`
+  // );
   recipeModel.insertNewRecipe(
     recipe_name,
     recipe_ingredients,
@@ -43,6 +43,7 @@ function insertNewRecipe(req, res) {
     formCat,
     function(error, results) {
       res.json(results);
+      //if statement for results. If 1 go to certain page.
     }
   );
 }

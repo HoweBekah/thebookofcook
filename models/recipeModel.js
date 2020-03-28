@@ -66,25 +66,18 @@ function insertNewRecipe(
   var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, '${recipe_name}','${recipe_ingredients}', '${recipe_instructions}','${formCat}')`;
 
   //console.log(params);
-  pool.query(
-    sql,
-    // recipe_name,
-    // recipe_ingredients,
-    // recipe_instructions,
-    // formCat,
-    function(err, DBres) {
-      //} else {
-      //console.log("Back from DB with: ");
-      //console.log(DBres);
+  pool.query(sql, function(err, DBres) {
+    //} else {
+    //console.log("Back from DB with: ");
+    //console.log(DBres);
 
-      var results = {
-        list: DBres.rows
-      };
+    var results = {
+      list: DBres.rows
+    };
 
-      callback(null, results);
-      //  }
-    }
-  );
+    callback(null, results);
+    //  }
+  });
 }
 
 function recipeEdit() {}

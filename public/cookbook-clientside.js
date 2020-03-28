@@ -188,16 +188,14 @@ function newRecipe() {
   myForm.method = "POST";
   myForm.action = "/recipe";
 
-  myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
+  myForm.innerHTML = `<fieldset><legend>New ${category} Recipe</legend>
     <label for="recipe_name">Recipe Name:</label>
       <input type="text" id="recipe_name" name="recipe_name" required />
       <label for="recipe_ingredients">Ingredients:</label>
-      <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
+      <textarea id="recipe_ingredients" name="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
       <label for="recipe_instructions">Instructions:</label>
-      <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
-
-      <label for="formCat">Category:</label>
-      <input type="text" id="formCat" value="${category}" disabled />
+      <textarea id='recipe_instructions' name="recipe_instructions" rows="10" cols="40" required></textarea></textarea>
+      <input type="hidden" name="formCat" value="${category}"/>
 
       <input type='submit' value='Add Recipe' id='recSubmit' onclick="insertNewRecipe()"/></fieldset>`;
   // });<input type="hidden" id="formCat" value="${category}"/>
