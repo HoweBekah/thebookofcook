@@ -44,6 +44,9 @@ function insertNewRecipe(req, res) {
     function(error, results) {
       res.json(results);
       //if statement for results. If 1 go to certain page.
+      // if (results.rowCount == 1) {
+      //   console.log("It was successful!");
+      // }
     }
   );
 }

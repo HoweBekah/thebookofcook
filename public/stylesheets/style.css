@@ -126,6 +126,7 @@ button#search {
   border-radius: 20px;
   padding: 1em;
   font-size: 1.5em;
+  margin-bottom: 2em;
 }
 #allRecipes {
   width: 40%;
@@ -200,4 +201,47 @@ footer {
   padding: 0.5em 1em;
   margin-top: 4em;
   font-size: 1em;
+}
+a#addButton {
+  margin-top: 3em;
+  font-size: larger;
+  margin-bottom: 4em;
+}
+
+#newRecForm {
+  color: #e4ea8c;
+  display: grid;
+  margin-top: 2em;
+}
+#newRecForm fieldset {
+  border: 0.5em solid #cb0000;
+  margin: auto;
+  margin-top: 1em;
+  padding: 1.2em;
+  width: 21em;
+  height: auto;
+  border-radius: 20px;
+}
+#newRecForm legend {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: lighter;
+  padding-bottom: 0.1em;
+  margin-bottom: 0.7em;
+  text-decoration: underline #cb0000;
+}
+#newRecForm label {
+  color: #acbebe;
+}
+#newRecForm table.recInputs {
+  background-color: #cb0000;
+}
+#newRecForm table td {
+  padding: 0.5em;
+}
+#recSubmit.navButtons {
+  border: none;
+  display: inline-block;
+  text-align: center;
+  margin-top: 0.5em;
 }

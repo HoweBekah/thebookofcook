@@ -2,7 +2,14 @@ const { Pool } = require("pg");
 const db_url =
   "postgres://kqotaghsxoznkx:271e9a30b8f55b07e48f06395425ac2e40e5e1e1f2dcbb212b2a40bc8bfa41a0@ec2-174-129-254-235.compute-1.amazonaws.com:5432/d87nm6ji9guua9?ssl=true";
 const pool = new Pool({ connectionString: db_url });
-
+const express = require("express");
+const app = express();
+const targetBaseUrl = "https://arcane-coast-74365.herokuapp.com/cookbook.html";
+// function handleRedirect(req, res){
+//   const targetUrl = targetBaseUrl + req.originalUrl;
+//   res.redirect(targetUrl);
+// }
+// app.get('*', handleRedirect);
 function getAllRecipes(callback) {
   var sql =
     "SELECT recipe_id, recipe_name, ingredients, instructions, category FROM recipes";
@@ -60,9 +67,7 @@ function insertNewRecipe(
   //   instructions: instructions,
   //   catId: catId
   // };
-  console.log(
-    `You are the data: ${recipe_name}, ${recipe_ingredients}, ${recipe_instructions}, ${formCat}`
-  );
+
   var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, '${recipe_name}','${recipe_ingredients}', '${recipe_instructions}','${formCat}')`;
 
   //console.log(params);
@@ -74,7 +79,16 @@ function insertNewRecipe(
     var results = {
       list: DBres.rows
     };
-
+    console.log(DBres.rowCount);
+    if (DBres.rowCount == 1) {
+      const targetBaseUrl =
+        "https://arcane-coast-74365.herokuapp.com/cookbook.html";
+      function handleRedirect(req, res) {
+        const targetUrl = targetBaseUrl + req.originalUrl;
+        res.redirect(targetUrl);
+      }
+      app.get("*", handleRedirect);
+    }
     callback(null, results);
     //  }
   });

@@ -54,7 +54,6 @@ function searchByCategory() {
     document.getElementById("ulDiv").style.display = "inherit";
     document.getElementById("recTitle").style.display = "inherit";
     document.getElementById("ulRecipes").style.display = "inherit";
-    //document.getElementById("formDiv").style.display = "inherit";
 
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
@@ -63,75 +62,9 @@ function searchByCategory() {
         `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
       );
     }
-    $("#recipeDiv").append(
-      `<a class="navButtons" onclick="newRecipe()">Add Recipe</a>`
+    $("#ulDiv").append(
+      `<a class="navButtons" id ="addButton" onclick="newRecipe()">Add Recipe</a>`
     );
-
-    //     $.post("/recipe", { category: category }, function(data) {
-    //      ///////// This is there but there is no $.post for recipe
-    //       var myForm = document.createElement("form");
-    //       myForm.id = "newRecForm";
-    //       myForm.method = "POST";
-    //       myForm.action = "/recipe";
-    //       //console.log(category);
-    //       myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
-    //         <label for="recipe_name">Recipe Name:</label>
-    //           <input type="text" id="recipe_name" name="recipe_name" required />
-    //           <label for="recipe_ingredients">Ingredients:</label>
-    //           <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-    //           <label for="recipe_instructions">Instructions:</label>
-    //           <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
-
-    //           <input type="hidden" id="formCat" value="${category}"/>
-
-    //           <input type='submit' value='Add Recipe' id='recSubmit' onclick="insertNewRecipe()"/></fieldset>`;
-    //       console.log(myForm);
-    //     });
-    //
-    //     $("#recipeDiv").append(myForm);
-    /////////////////
-    //     if (myForm) {
-    //       myForm.empty();
-    //     } else {
-    //       var recList = data.list;
-    //       var myForm = document.createElement("form");
-    //       myForm.id = "newRecForm";
-    //       myForm.method = "POST";
-    //       myForm.action = "/recipe";
-
-    //       myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
-    //     <label for="recipe_name">Recipe Name:</label>
-    //       <input type="text" id="recipe_name" name="recipe_name" required />
-    //       <label for="recipe_ingredients">Ingredients:</label>
-    //       <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-    //       <label for="recipe_instructions">Instructions:</label>
-    //       <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
-    //       <label for="formCat">Category:</label>
-    //       <input type="text" id="formCat" value="${recList.category}" disabled />
-    //       <input type='submit' value='Add Recipe' id='recSubmit' /></fieldset>`;
-    //     }
-    //     $("#recipeDiv").append(myForm);
-    //   });
-
-    // $.get("/recipe", { category: category }, function(data) {
-    //   //console.log("Back from server with:");
-    //   //console.log(data);
-    //   console.log(category);
-
-    //   $("#ulRecipes").empty();
-    //   document.getElementById("allRecipes").style.display = "none";
-    //   document.getElementById("mainRecTitle").style.display = "none";
-    //   document.getElementById("ulDiv").style.display = "inherit";
-    //   document.getElementById("recTitle").style.display = "inherit";
-    //   document.getElementById("ulRecipes").style.display = "inherit";
-
-    //   for (var i = 0; i < data.list.length; i++) {
-    //     var recList = data.list[i];
-
-    //     $("#ulRecipes").append(
-    //       `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
-    //     );
-    //   }
   });
 }
 
@@ -188,16 +121,29 @@ function newRecipe() {
   myForm.method = "POST";
   myForm.action = "/recipe";
 
-  myForm.innerHTML = `<fieldset><legend>New ${category} Recipe</legend>
-    <label for="recipe_name">Recipe Name:</label>
-      <input type="text" id="recipe_name" name="recipe_name" required />
-      <label for="recipe_ingredients">Ingredients:</label>
-      <textarea id="recipe_ingredients" name="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-      <label for="recipe_instructions">Instructions:</label>
-      <textarea id='recipe_instructions' name="recipe_instructions" rows="10" cols="40" required></textarea></textarea>
+  myForm.innerHTML = `<fieldset>
+  <table>
+  <tr>
+  <th colspan="2"><legend>New ${category} Recipe</legend></th>
+  </tr>
+  <tr>
+    <td><label for="recipe_name" style="white-space:nowrap">Recipe Name:</label></td>
+    <td>  <input type="text" id="recipe_name" name="recipe_name" class="recInputs" required /></td>
+     </tr>
+     <tr>
+    <td><label for="recipe_ingredients">Ingredients:</label></td>
+     <td> <textarea id="recipe_ingredients" name="recipe_ingredients" class="recInputs" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea></td>
+     </tr>
+     <tr>
+     <td><label for="recipe_instructions">Instructions:</label></td>
+      <td><textarea id='recipe_instructions' name="recipe_instructions" class="recInputs" rows="10" cols="40" required></textarea></textarea></td>
+      </tr>
       <input type="hidden" name="formCat" value="${category}"/>
-
-      <input type='submit' value='Add Recipe' id='recSubmit' onclick="insertNewRecipe()"/></fieldset>`;
+<tr>
+      <td colspan="2"><input type='submit' value='Add Recipe' id='recSubmit' class="navButtons" onclick="insertNewRecipe()"/></td>
+      </tr>
+      </table>
+      </fieldset>`;
   // });<input type="hidden" id="formCat" value="${category}"/>
   //console.log(myForm);
   $("#recipeDiv").append(myForm);
