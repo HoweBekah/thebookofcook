@@ -59,10 +59,11 @@ function insertNewRecipe(
   callback
 ) {
   var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, '${recipe_name}','${recipe_ingredients}', '${recipe_instructions}','${formCat}')`;
-
+  console.log(sql);
   pool.query(sql, function(err, DBres) {
     //} else {
-
+    //do this before fixing page issue
+    console.log(err);
     var results = {
       list: DBres.rows
     };

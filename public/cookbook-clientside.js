@@ -137,6 +137,12 @@ function newRecipe() {
       </fieldset>`;
 
   $("#recipeDiv").append(myForm);
+  //add event listener instead of onclick event.
+  //event.preventDefault()
+  //pull submit button
+
+  //default is making $.post not work which will solve my redirect problem
+
   ///////post/redirect attempt
   //   $.post("/recipe", function(req, res) {
   //   var recipe_name = req.body.recipe_name;
