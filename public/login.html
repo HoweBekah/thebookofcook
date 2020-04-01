@@ -32,14 +32,22 @@
         
             <form action="/account" method="get" id="loginDiv">
                 <fieldset>
-                    <legend>Login</legend>
-                    <label for="email">Email:</label>
-                    <input type="email" name="account_email" id="email" placeholder="jonsmith@demo.com"required /><br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="account_password" id="password" minlength="8" required /><br />
-    
-                    <input type="submit" name="submit" id="submit" />
-                   
+                  <table>
+                    <tr>
+                    <th colspan="2"><legend id="legend">Login</legend></th>
+                  </tr>
+                  <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" name="account_email" class= "padInputs" id="email" placeholder="jonsmith@demo.com"required /></td>
+                    </tr>
+                    <tr>
+                      <td><label for="password">Password:</label></td>
+                      <td><input type="password" name="account_password" class= "padInputs" id="password" minlength="8" required /></td>
+                   </tr>
+                   <tr>
+                    <td colspan="2"><input type="submit" name="submit" id="recSubmit" class= "navButtons" /></td>
+                   </tr>
+                  </table>
                 </fieldset>
             </form>
       

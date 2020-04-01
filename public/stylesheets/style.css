@@ -25,7 +25,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+legend {
   font-family: "Kalam", cursive;
 }
 
@@ -118,7 +119,7 @@ button#search {
 #ulRecipes,
 #allRecipes {
   list-style: inside;
-  width: 75%;
+  width: 85%;
   margin: auto;
   padding: 0;
   background-color: #cb0000;
@@ -129,8 +130,10 @@ button#search {
   margin-bottom: 2em;
 }
 #allRecipes {
-  width: 40%;
+  width: 50%;
+  height: 24em;
   font-size: 1.5em;
+  overflow: auto;
 }
 #ulRecipes li,
 #allRecipes li {
@@ -213,35 +216,94 @@ a#addButton {
   display: grid;
   margin-top: 2em;
 }
-#newRecForm fieldset {
-  border: 0.5em solid #cb0000;
+#newRecForm fieldset,
+#registerDiv fieldset,
+#loginDiv fieldset {
+  border: none;
   margin: auto;
   margin-top: 1em;
   padding: 1.2em;
-  width: 21em;
+  width: 70%;
   height: auto;
   border-radius: 20px;
+  background-color: #50312f;
 }
-#newRecForm legend {
+
+#registerDiv fieldset,
+#loginDiv fieldset {
+  margin: 4em auto;
+  width: 50%;
+}
+
+#newRecForm table,
+#registerDiv table,
+#loginDiv table {
+  margin: auto;
+  border-spacing: 0.75em;
+}
+
+#newRecForm #legend,
+#registerDiv #legend,
+#loginDiv #legend {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 2em;
   font-weight: lighter;
+  margin: auto;
   padding-bottom: 0.1em;
   margin-bottom: 0.7em;
-  text-decoration: underline #cb0000;
+  border-bottom: 0.2em solid #cb0000;
 }
-#newRecForm label {
+
+#registerDiv #legend,
+#loginDiv #legend {
+  margin-bottom: 0.25em;
+  color: #e4ea8c;
+}
+
+#newRecForm label,
+#registerDiv label,
+#loginDiv label {
   color: #acbebe;
+  font-size: 1.2em;
 }
-#newRecForm table.recInputs {
-  background-color: #cb0000;
-}
-#newRecForm table td {
-  padding: 0.5em;
+
+#newRecForm table .padInputs,
+#registerDiv table .padInputs,
+#loginDiv table .padInputs {
+  padding: 0.3em;
+  background-color: #f4f4ef;
 }
 #recSubmit.navButtons {
+  font-family: "Crete Round", serif;
   border: none;
-  display: inline-block;
+  font-size: 1.2em;
   text-align: center;
+  margin: auto;
   margin-top: 0.5em;
+  background-color: #3f6c45;
+}
+#newRecForm #subRec {
+  text-align: center;
+}
+
+html {
+  --scrollbarBG: #f4f4ef;
+  --thumbBG: #3f6c45;
+}
+#allRecipes::-webkit-scrollbar {
+  width: 0.8em;
+}
+#allRecipes {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+#allRecipes::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#allRecipes::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 20px;
+  border: 3px solid var(--scrollbarBG);
 }

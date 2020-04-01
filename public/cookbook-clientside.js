@@ -124,23 +124,23 @@ function newRecipe() {
   myForm.innerHTML = `<fieldset>
   <table>
   <tr>
-  <th colspan="2"><legend>New ${category} Recipe</legend></th>
+  <th colspan="2" ><legend id="legend">New ${category} Recipe</legend></th>
   </tr>
   <tr>
-    <td><label for="recipe_name" style="white-space:nowrap">Recipe Name:</label></td>
-    <td>  <input type="text" id="recipe_name" name="recipe_name" class="recInputs" required /></td>
+    <td ><label for="recipe_name" style="white-space:nowrap">Recipe Name:</label></td>
+    <td>  <input type="text" id="recipe_name" name="recipe_name" class= "padInputs" required /></td>
      </tr>
      <tr>
     <td><label for="recipe_ingredients">Ingredients:</label></td>
-     <td> <textarea id="recipe_ingredients" name="recipe_ingredients" class="recInputs" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea></td>
+     <td> <textarea id="recipe_ingredients" name="recipe_ingredients" class= "padInputs" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea></td>
      </tr>
      <tr>
      <td><label for="recipe_instructions">Instructions:</label></td>
-      <td><textarea id='recipe_instructions' name="recipe_instructions" class="recInputs" rows="10" cols="40" required></textarea></textarea></td>
+      <td><textarea id='recipe_instructions' name="recipe_instructions" class= "padInputs" rows="10" cols="40" required></textarea></textarea></td>
       </tr>
       <input type="hidden" name="formCat" value="${category}"/>
 <tr>
-      <td colspan="2"><input type='submit' value='Add Recipe' id='recSubmit' class="navButtons" onclick="insertNewRecipe()"/></td>
+      <td colspan="2" id="subRec" ><input type='submit' value='Save Recipe' id='recSubmit' class= "padInputs" onclick="insertNewRecipe()"/></td>
       </tr>
       </table>
       </fieldset>`;

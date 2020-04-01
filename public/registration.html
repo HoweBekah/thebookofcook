@@ -32,17 +32,28 @@
         
             <form action="/account" method="post" id="registerDiv">
                 <fieldset>
-                    <legend>Register</legend>
-                    <label for="fname">First Name:</label>
-                    <input type="text" name="account_fname" id="fname" required /><br />
-                    <label for="lname">Last Name:</label>
-                    <input type="text" name="account_lname" id="lname" required /><br />
-                    <label for="email">Email:</label>
-                    <input type="email" name="account_email" id="email" placeholder="jonsmith@demo.com"required /><br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="account_password" id="password" minlength="8" required /><br />
-            
-                    <input type="submit" name="submit" id="submit" />
+                  <table>
+                    <tr>
+                  <th colspan="2"> <legend id="legend">Register</legend></th>
+                </tr>
+                  <tr>
+                   <td> <label for="fname">First Name:</label></td>
+                    <td><input type="text" name="account_fname" id="fname" class= "padInputs" required /></td></tr>
+                   <tr>
+                    <td><label for="lname">Last Name:</label></td>
+                    <td><input type="text" name="account_lname" id="lname" class= "padInputs" required /></td>
+                  </tr>
+                    <tr>
+                      <td><label for="email">Email:</label></td>
+                      <td> <input type="email" name="account_email" id="email" class= "padInputs" placeholder="jonsmith@demo.com"required /></td>
+                    </tr>
+                    <tr>
+                      <td> <label for="password">Password:</label></td>
+                      <td> <input type="password" name="account_password" id="password" class= "padInputs" minlength="8" required /></td>
+                  </tr>
+                  <tr>
+                   <td colspan="2"> <input type="submit" name="submit" id="recSubmit" class="navButtons" /></td></tr>
+                  </table>
                 </fieldset>
             </form>
       
