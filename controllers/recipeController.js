@@ -41,7 +41,7 @@ function insertNewRecipe(req, res) {
       }
     }
   );
-  res.redirect("back");
+  res.redirect(req.originalUrl);
 }
 
 function recipeEdit() {}
