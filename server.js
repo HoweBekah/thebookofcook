@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 //cat gets and posts
 app.get("/categories", catController.getCatList);
 app.get("/search", catController.search);

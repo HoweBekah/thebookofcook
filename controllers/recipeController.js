@@ -1,24 +1,28 @@
+//require model to get info from model
 const recipeModel = require("../models/recipeModel.js");
 
 function search(req, res) {
-  //TODO: check if query is recipe id or cat id to call proper function
-  var category = req.query.category; //TODO: comes from query
+  //pulling category from view
+  var category = req.query.category;
   catModel.searchByCategory(category, function(error, results) {
     res.json(results);
   });
 }
+//getting all recipe information and displaying it
 function getRecipeList(req, res) {
   recipeModel.getAllRecipes(function(error, results) {
     res.json(results);
   });
 }
+
+//getting specific recipe based on recipe id
 function getRecipe(req, res) {
   var recipe_id = req.param("recipe_id");
-  //console.log(`Do you work ${recipe_id}`);
   recipeModel.getRecipeById(recipe_id, function(error, results) {
     res.json(results);
   });
 }
+//getting data from view to send to controller
 function insertNewRecipe(req, res) {
   //catid and recipeId
 
@@ -34,16 +38,14 @@ function insertNewRecipe(req, res) {
     formCat,
     function(error, results) {
       res.json(results);
-      //res.redirect("/recipe");
       if (results.list.length == 0) {
-        // require("../public/cookbook.html");
         console.log("It was successful!");
       }
     }
   );
-  res.redirect(req.originalUrl);
+  //res.redirect(req.originalUrl);
 }
-
+//haven't started on these features
 function recipeEdit() {}
 
 function recipeDelete() {}

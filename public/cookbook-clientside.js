@@ -1,10 +1,8 @@
+//calls models to get data from database
 window.onload = function getAllCats() {
-  //console.log("Butts.com");
-
+  //getting categories through model
   $.get("/categories", function(data) {
-    //console.log("Back from server with:");
-    //console.log(data);
-    // $("#catOptions").empty();
+    //dynamically populating category options
     $("#catOptions").append(
       `<option selected disabled>Choose a Category</option>`
     );
@@ -14,12 +12,14 @@ window.onload = function getAllCats() {
     }
   });
 
+  //getting recipes through model
   $.get("/recipes", function(data) {
     var mainRecTitle = document.createElement("h2");
     mainRecTitle.id = "mainRecTitle";
     mainRecTitle.innerText = "Recipes";
     $("#recipeDiv").append(mainRecTitle);
 
+    //creating ol for recipe names
     var allRecipes = document.createElement("ol");
     allRecipes.id = "allRecipes";
     $("#recipeDiv").append(allRecipes);
@@ -31,23 +31,25 @@ window.onload = function getAllCats() {
       );
     }
   });
-
+  //STRUGGLE: still struggling with account funtionality
   // $.post("/account", function(data) {});
 };
 
-//read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
+//read in list. use a counter, on odds add white space, on evens add </br>.
+//Use classes to apply grid to separate sides
 
 function searchByCategory() {
   var category = $("#catOptions").val();
-
+  //sending category to model to find recipes
   $.get("/search", { category: category }, function(data) {
     $("#ulRecipes").empty();
+    //needed to be a semi-single page application
     document.getElementById("allRecipes").style.display = "none";
     document.getElementById("mainRecTitle").style.display = "none";
     document.getElementById("ulDiv").style.display = "inherit";
     document.getElementById("recTitle").style.display = "inherit";
     document.getElementById("ulRecipes").style.display = "inherit";
-
+    //display all recipes in the category
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
@@ -55,20 +57,19 @@ function searchByCategory() {
         `<li onclick="getRecipeById(${recList.recipe_id})">${recList.recipe_name}</li>`
       );
     }
+    //button to add new recipe in that category
     $("#ulDiv").append(
       `<a class="navButtons" id ="addButton" onclick="newRecipe()">Add Recipe</a>`
     );
   });
 }
-
+//getting all of specific recipe info
 function getRecipeById(recipe_id) {
-  //console.log(recipe_id);
   $.get("/recipe", { recipe_id: recipe_id }, function(data) {
     $("#ulRecipes").empty();
     $("#recipeDiv").empty();
     document.getElementById("searchDiv").style.display = "none";
 
-    //$("#recipeDiv").prepend(`<h2>${data.list.recipe_name}</h2>`);
     for (var i = 0; i < data.list.length; i++) {
       var recList = data.list[i];
 
@@ -83,29 +84,27 @@ function getRecipeById(recipe_id) {
       var myList = document.createElement("ul");
       myList.id = "ingredientList";
       $("#ingsDiv").append(myList);
-
+      //splitting ingredients at the comma
       var ingreds = recList.ingredients;
       var ingList = ingreds.split(",");
-      //console.log(ingList);
+      //for loop to create a left and right list of the ingredients
       for (var i = 0; i < ingList.length; i++) {
         if (i % 2 != 0) {
-          //console.log(`Odd: ${ingList[i]}`);
           $("#ingredientList").append(
             `<li class= "rightIngList">${ingList[i]}</li>`
           );
         } else {
-          //console.log(`Even: ${ingList[i]}`);
           $("#ingredientList").append(
             `<li class= "leftIngList">${ingList[i]}</li>`
           );
         }
       }
-
-      //$("#recipeDiv").append(`<h5>${recList.ingredients}</h5>`);
+      //adding instructions
       $("#recipeDiv").append(`<p id="instruct">${recList.instructions}</p>`);
     }
   });
 }
+//function to add recipe form after button is pushed
 function newRecipe() {
   var category = $("#catOptions").val();
 
@@ -113,7 +112,6 @@ function newRecipe() {
   myForm.id = "newRecForm";
   myForm.method = "POST";
   myForm.action = "/recipe";
-
   myForm.innerHTML = `<fieldset>
   <table>
   <tr>
@@ -139,6 +137,7 @@ function newRecipe() {
       </fieldset>`;
 
   $("#recipeDiv").append(myForm);
+  ///////post/redirect attempt
   //   $.post("/recipe", function(req, res) {
   //   var recipe_name = req.body.recipe_name;
   // var recipe_ingredients = req.body.recipe_ingredients;
