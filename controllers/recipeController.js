@@ -21,21 +21,12 @@ function getRecipe(req, res) {
 }
 function insertNewRecipe(req, res) {
   //catid and recipeId
-  // var recipe_name = req.param("recipe_name");
-  // var recipe_ingredients = req.param("recipe_ingredients");
-  // var recipe_instructions = req.param("recipe_instructions");
-  // var formCat = req.param("formCat");
 
   var recipe_name = req.body.recipe_name;
   var recipe_ingredients = req.body.recipe_ingredients;
   var recipe_instructions = req.body.recipe_instructions;
   var formCat = req.body.formCat;
 
-  //var data = [recipe_name, recipe_ingredients, recipe_instructions, formCat];
-
-  // console.log(
-  //   `Stop sucking. ${recipe_name}, ${recipe_ingredients}, ${recipe_instructions}, ${formCat}`
-  // );
   recipeModel.insertNewRecipe(
     recipe_name,
     recipe_ingredients,
@@ -43,12 +34,14 @@ function insertNewRecipe(req, res) {
     formCat,
     function(error, results) {
       res.json(results);
-      //if statement for results. If 1 go to certain page.
-      // if (results.rowCount == 1) {
-      //   console.log("It was successful!");
-      // }
+      //res.redirect("/recipe");
+      if (results.list.length == 0) {
+        // require("../public/cookbook.html");
+        console.log("It was successful!");
+      }
     }
   );
+  res.redirect("https://arcane-coast-74365.herokuapp.com/cookbook.html");
 }
 
 function recipeEdit() {}

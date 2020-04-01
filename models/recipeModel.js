@@ -61,16 +61,8 @@ function insertNewRecipe(
   formCat,
   callback
 ) {
-  // var data = {
-  //   recipe_name: recipe_name,
-  //   ingredients: ingredients,
-  //   instructions: instructions,
-  //   catId: catId
-  // };
-
   var sql = `INSERT INTO recipes (recipe_id, recipe_name,ingredients,instructions, category) VALUES (DEFAULT, '${recipe_name}','${recipe_ingredients}', '${recipe_instructions}','${formCat}')`;
-
-  //console.log(params);
+  //console.log(recipe_name, recipe_ingredients, recipe_instructions, formCat);
   pool.query(sql, function(err, DBres) {
     //} else {
     //console.log("Back from DB with: ");
@@ -79,16 +71,13 @@ function insertNewRecipe(
     var results = {
       list: DBres.rows
     };
-    console.log(DBres.rowCount);
-    if (DBres.rowCount == 1) {
-      const targetBaseUrl =
-        "https://arcane-coast-74365.herokuapp.com/cookbook.html";
-      function handleRedirect(req, res) {
-        const targetUrl = targetBaseUrl + req.originalUrl;
-        res.redirect(targetUrl);
-      }
-      app.get("*", handleRedirect);
-    }
+    var recRow = DBres.rowCount;
+    console.log(recRow);
+    // if (DBres.rowCount == 1) {
+    //   res.redirect(
+    //     "C:/Users/bekah/Documents/GitHub/FamCookbook/public/cookbook.html"
+    //   );
+    // }
     callback(null, results);
     //  }
   });

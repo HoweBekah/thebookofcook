@@ -299,8 +299,7 @@ html {
 }
 #allRecipes::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
 }
 #allRecipes::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);

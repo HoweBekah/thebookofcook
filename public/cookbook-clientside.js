@@ -38,16 +38,9 @@ window.onload = function getAllCats() {
 //read in list. use a counter, on odds add white space, on evens add </br>. Use classes to apply grid to separate sides
 
 function searchByCategory() {
-  //console.log("Found the recipes!");
-
   var category = $("#catOptions").val();
-  //console.log(`Category: ${category}`);
 
   $.get("/search", { category: category }, function(data) {
-    //console.log("Back from server with:");
-    //console.log(data);
-    //console.log(category);
-
     $("#ulRecipes").empty();
     document.getElementById("allRecipes").style.display = "none";
     document.getElementById("mainRecTitle").style.display = "none";
@@ -115,7 +108,7 @@ function getRecipeById(recipe_id) {
 }
 function newRecipe() {
   var category = $("#catOptions").val();
-  // $.post("/recipe", { category: category }, function(data) {
+
   var myForm = document.createElement("form");
   myForm.id = "newRecForm";
   myForm.method = "POST";
@@ -136,7 +129,7 @@ function newRecipe() {
      </tr>
      <tr>
      <td><label for="recipe_instructions">Instructions:</label></td>
-      <td><textarea id='recipe_instructions' name="recipe_instructions" class= "padInputs" rows="10" cols="40" required></textarea></textarea></td>
+      <td><textarea id='recipe_instructions' name="recipe_instructions" class= "padInputs" rows="10" cols="40" required></textarea></td>
       </tr>
       <input type="hidden" name="formCat" value="${category}"/>
 <tr>
@@ -144,29 +137,12 @@ function newRecipe() {
       </tr>
       </table>
       </fieldset>`;
-  // });<input type="hidden" id="formCat" value="${category}"/>
-  //console.log(myForm);
+
   $("#recipeDiv").append(myForm);
-
-  // if (myForm) {
-  //       myForm.empty();
-  //     } else {
-  //       var recList = data.list;
-  //       var myForm = document.createElement("form");
-  //       myForm.id = "newRecForm";
-  //       myForm.method = "POST";
-  //       myForm.action = "/recipe";
-
-  //       myForm.innerHTML = `<fieldset><legend>New Recipe</legend>
-  //     <label for="recipe_name">Recipe Name:</label>
-  //       <input type="text" id="recipe_name" name="recipe_name" required />
-  //       <label for="recipe_ingredients">Ingredients:</label>
-  //       <textarea id="recipe_ingredients" rows="10" cols="40" placeholder="Separate ingredients with comma" required></textarea>
-  //       <label for="recipe_instructions">Instructions:</label>
-  //       <textarea id='recipe_instructions' rows="10" cols="40" required></textarea></textarea>
-  //       <label for="formCat">Category:</label>
-  //       <input type="text" id="formCat" value="${recList.category}" disabled />
-  //       <input type='submit' value='Add Recipe' id='recSubmit' /></fieldset>`;
-  //     }
-  //     $("#recipeDiv").append(myForm);});
+  //   $.post("/recipe", function(req, res) {
+  //   var recipe_name = req.body.recipe_name;
+  // var recipe_ingredients = req.body.recipe_ingredients;
+  // var recipe_instructions = req.body.recipe_instructions;
+  // var formCat = req.body.formCat;
+  // });
 }
