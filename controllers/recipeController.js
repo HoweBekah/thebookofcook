@@ -41,7 +41,7 @@ function insertNewRecipe(req, res) {
       }
     }
   );
-  res.redirect("https://arcane-coast-74365.herokuapp.com/cookbook.html");
+  res.redirect("back");
 }
 
 function recipeEdit() {}
