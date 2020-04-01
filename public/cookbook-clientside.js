@@ -140,7 +140,7 @@ function newRecipe() {
       </tr>
       <input type="hidden" name="formCat" value="${category}"/>
 <tr>
-      <td colspan="2" id="subRec" ><input type='submit' value='Save Recipe' id='recSubmit' class= "padInputs" onclick="insertNewRecipe()"/></td>
+      <td colspan="2" id="subRec" ><input type='submit' value='Save Recipe' id='recSubmit' class= "navButtons" onclick="insertNewRecipe()"/></td>
       </tr>
       </table>
       </fieldset>`;
